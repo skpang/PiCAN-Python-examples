@@ -2,7 +2,7 @@
 #
 # simple_rx_test.py
 # 
-# This python3 program logs all CAN messages to the sd card.
+# This is simple CAN receive python program. All messages received are printed out on screen.
 # For use with PiCAN boards on the Raspberry Pi
 # http://skpang.co.uk/catalog/pican2-canbus-board-for-raspberry-pi-2-p-1475.html
 #
@@ -13,7 +13,6 @@
 #
 #
 
-import RPi.GPIO as GPIO
 import can
 import time
 import os
