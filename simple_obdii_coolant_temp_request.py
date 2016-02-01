@@ -29,10 +29,10 @@ ENGINE_RPM          = 0x0C
 VEHICLE_SPEED       = 0x0D
 MAF_SENSOR          = 0x10
 O2_VOLTAGE          = 0x14
-THROTTLE			= 0x11
+THROTTLE            = 0x11
 
 PID_REQUEST         = 0x7DF
-PID_REPLY			= 0x7E8
+PID_REPLY           = 0x7E8
 
 print('\n\rCAN Rx test')
 print('Bring up CAN0....')
