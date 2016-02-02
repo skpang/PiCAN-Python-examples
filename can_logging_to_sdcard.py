@@ -50,16 +50,16 @@ except OSError:
 def can_rx_task():
 	while True:
 		message = bus.recv()
-		q.put(message)
+		q.put(message)			# Put message into queue
 
 q = queue.Queue()	
-t = Thread(target = can_rx_task)
+t = Thread(target = can_rx_task)	# Start receive thread
 t.start()
 
 # Main loop
 try:
 	while True:
-		if q.empty() != True:
+		if q.empty() != True:	# Check if there is a message in queue
 			message = q.get()
 			c = '{0:f} {1:d} {2:x} {3:x} '.format(message.timestamp,count, message.arbitration_id, message.dlc)
 			s=''
@@ -68,7 +68,7 @@ try:
 
 			outstr = c+s
 
-			print('\r {} qsize:{}       '.format(outstr,q.qsize()),end ='')
+			print('\r {} qsize:{}       '.format(outstr,q.qsize()),end ='') # Print data and queue size on screen
 			
 			count += 1
 			
