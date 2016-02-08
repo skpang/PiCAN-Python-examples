@@ -8,9 +8,10 @@
 #
 # Make sure Python-CAN is installed first http://skpang.co.uk/blog/archives/1220
 #
+# 08-02-16 Padded request with 5 bytes of zeros
 # 01-02-16 SK Pang
 #
-#
+
 import RPi.GPIO as GPIO
 import can
 import time
@@ -68,7 +69,7 @@ try:
 		GPIO.output(led,True)	
 
 		# Sent a engine coolant temperature request
-		msg = can.Message(arbitration_id=PID_REQUEST,data=[0x02,0x01,ENGINE_COOLANT_TEMP],extended_id=False)
+		msg = can.Message(arbitration_id=PID_REQUEST,data=[0x02,0x01,ENGINE_COOLANT_TEMP,0x00,0x00,0x00,0x00,0x00],extended_id=False)
 		bus.send(msg)
 
 		time.sleep(0.1)
